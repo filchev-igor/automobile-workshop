@@ -15,6 +15,9 @@ namespace projektas
         public Form5()
         {
             InitializeComponent();
+
+            this.textBox2.AutoSize = false;
+            this.textBox2.Size = new Size(this.textBox2.Size.Width, 50);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -34,6 +37,21 @@ namespace projektas
             Form f6 = new Form6();
             this.Hide();
             f6.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.Black;
+        }
+
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.White;
         }
     }
 }
