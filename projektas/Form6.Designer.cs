@@ -40,12 +40,14 @@ namespace projektas
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
@@ -152,6 +154,19 @@ namespace projektas
             this.linkLabel1.Text = "Jau turite paskyrą?Jungtis";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(1009, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 27);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "X";
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,5 +205,6 @@ namespace projektas
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label5;
     }
 }

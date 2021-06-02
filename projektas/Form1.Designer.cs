@@ -44,6 +44,8 @@ namespace projektas
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -189,10 +191,24 @@ namespace projektas
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(787, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(179, 636);
             this.panel2.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(138, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 27);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "X";
             // 
             // Form1
             // 
@@ -218,6 +234,8 @@ namespace projektas
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,6 +258,7 @@ namespace projektas
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
     }
 }
 
