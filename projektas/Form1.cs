@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace projektas
 {
     public partial class Form1 : Form
     {
+        MySqlConnection connection = new MySqlConnection("server=localhost:8080;port=3306;username=root;password=;database=autoserviso_login");
         public Form1()
         {
             InitializeComponent();
