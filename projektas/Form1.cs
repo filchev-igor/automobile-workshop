@@ -1,5 +1,11 @@
 ﻿using System;
-using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace projektas
@@ -23,31 +29,12 @@ namespace projektas
             f2.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
-            string connectionString = GetConnectionString();
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
-            Console.WriteLine("Started");
-
-            using (SqlConnection connection = new SqlConnection())
-            {
-                connection.ConnectionString = connectionString;
-
-                connection.Open();
-
-                Console.WriteLine("State: {0}", connection.State);
-                Console.WriteLine("ConnectionString: {0}",
-                    connection.ConnectionString);
-
-                connection.Close();
-            }
-        }
-
-        static private string GetConnectionString()
-        {
-            // To avoid storing the connection string in your code,
-            // you can retrieve it from a configuration file.
-            return "Data Source=MSSQL1;Initial Catalog=teams;User ID=root;Password=;";
+            if (alert == DialogResult.Yes)
+                this.Close();
         }
     }
 }

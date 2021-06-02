@@ -44,7 +44,8 @@ namespace projektas
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -190,21 +191,26 @@ namespace projektas
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(787, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(179, 636);
             this.panel2.TabIndex = 14;
             // 
-            // button2
+            // label5
             // 
-            this.button2.BackColor = System.Drawing.Color.Tomato;
-            this.button2.Location = new System.Drawing.Point(118, 381);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 42);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Connect";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(138, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 27);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "X";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Form1
             // 
@@ -212,7 +218,6 @@ namespace projektas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(964, 637);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox8);
@@ -231,6 +236,8 @@ namespace projektas
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,7 +260,7 @@ namespace projektas
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label5;
     }
 }
 
