@@ -99,6 +99,7 @@ namespace projektas
             this.Controls.Add(this.label1);
             this.Name = "Form4";
             this.Text = "Form4";
+            this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

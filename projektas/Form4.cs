@@ -23,5 +23,10 @@ namespace projektas
             this.Hide();
             f3.Show();
         }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

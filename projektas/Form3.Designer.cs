@@ -42,6 +42,7 @@ namespace projektas
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -107,7 +108,7 @@ namespace projektas
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(567, 531);
             this.button1.Name = "button1";
@@ -164,12 +165,21 @@ namespace projektas
             this.panel2.Size = new System.Drawing.Size(187, 681);
             this.panel2.TabIndex = 12;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel3.Location = new System.Drawing.Point(263, 353);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(358, 96);
+            this.panel3.TabIndex = 13;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(982, 690);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox4);
@@ -205,5 +215,6 @@ namespace projektas
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
