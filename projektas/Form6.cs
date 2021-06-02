@@ -10,26 +10,21 @@ using System.Windows.Forms;
 
 namespace projektas
 {
-    public partial class Form4 : Form
+    public partial class Form6 : Form
     {
-        public Form4()
+        public Form6()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Form f3 = new Form3();
-            this.Hide();
-            f3.Show();
-        }
-
-        private void Form4_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
+        {
+            Form f5 = new Form5();
+            this.Hide();
+            f5.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form f5 = new Form5();
             this.Hide();
