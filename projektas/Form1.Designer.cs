@@ -44,6 +44,7 @@ namespace projektas
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -194,12 +195,24 @@ namespace projektas
             this.panel2.Size = new System.Drawing.Size(179, 636);
             this.panel2.TabIndex = 14;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Tomato;
+            this.button2.Location = new System.Drawing.Point(118, 381);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 42);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Connect";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(964, 637);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox8);
@@ -240,6 +253,7 @@ namespace projektas
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button2;
     }
 }
 
