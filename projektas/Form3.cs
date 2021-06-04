@@ -33,7 +33,20 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
+            if (alert == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.White;
+        }
+
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.Red;
         }
     }
 }

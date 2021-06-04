@@ -43,6 +43,8 @@ namespace projektas
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -160,6 +162,7 @@ namespace projektas
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(799, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(187, 681);
@@ -172,6 +175,20 @@ namespace projektas
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(358, 96);
             this.panel3.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(142, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 27);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "X";
             // 
             // Form3
             // 
@@ -195,6 +212,8 @@ namespace projektas
             this.Controls.Add(this.label1);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +235,6 @@ namespace projektas
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label6;
     }
 }

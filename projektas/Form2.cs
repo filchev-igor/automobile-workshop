@@ -30,5 +30,13 @@ namespace projektas
             this.Hide();
             f3.Show();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+
+            if (alert == DialogResult.Yes)
+                this.Close();
+        }
     }
 }

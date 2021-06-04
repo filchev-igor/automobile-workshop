@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,6 +37,27 @@ namespace projektas
 
             if (alert == DialogResult.Yes)
                 this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Mysql mysql = new Mysql();
+
+            MySqlConnection connection = mysql.getConnection();
+
+            MessageBox.Show(Convert.ToString(connection.State));
+
+            connection.Close();
+        }
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.White;
+        }
+
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.Red;
         }
     }
 }
