@@ -48,5 +48,20 @@ namespace projektas
         {
             label5.ForeColor = Color.Red;
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label6_MouseEnter(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.Black;
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.White;
+        }
     }
 }

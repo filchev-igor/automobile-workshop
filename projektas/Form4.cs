@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,28 @@ namespace projektas
         private void Form4_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form f5 = new Form5();
+            this.Hide();
+            f5.Show();
+        }
+
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.White;
+        }
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.Black;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -56,7 +56,7 @@ namespace projektas
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 52);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Užbaigti registraciją";
+            this.button1.Text = "Testi";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -97,12 +97,15 @@ namespace projektas
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(154, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 27);
             this.label5.TabIndex = 1;
             this.label5.Text = "X";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.MouseEnter += new System.EventHandler(this.label5_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.label5_MouseLeave);
             // 
             // Form4
             // 
