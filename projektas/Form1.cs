@@ -27,9 +27,9 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form f2 = new Form2();
+            Form form = new Form2();
             this.Hide();
-            f2.Show();
+            form.Show();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -59,6 +59,13 @@ namespace projektas
         private void label5_MouseLeave(object sender, EventArgs e)
         {
             label5.ForeColor = Color.Red;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form form = new Form7();
+            this.Hide();
+            form.Show();
         }
     }
 }

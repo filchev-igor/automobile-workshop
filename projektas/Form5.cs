@@ -28,16 +28,16 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form f4 = new Form4();
+            Form form = new Form7();
             this.Hide();
-            f4.Show();
+            form.Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form f6 = new Form6();
+            Form form = new Form6();
             this.Hide();
-            f6.Show();
+            form.Show();
         }
 
         private void label5_Click(object sender, EventArgs e)

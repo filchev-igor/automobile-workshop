@@ -19,16 +19,21 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form f4 = new Form4();
-            this.Hide();
-            f4.Show();
+            bool isDataChanged = false;
+
+            if (isDataChanged)
+            {
+                Form form = new Form7();
+                this.Hide();
+                form.Show();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form f2 = new Form2();
+            Form form = new Form7();
             this.Hide();
-            f2.Show();
+            form.Show();
         }
 
         private void label5_Click(object sender, EventArgs e)

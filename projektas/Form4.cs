@@ -33,9 +33,9 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form f5 = new Form5();
+            Form form = new Form7();
             this.Hide();
-            f5.Show();
+            form.Show();
         }
 
         private void label5_MouseLeave(object sender, EventArgs e)
@@ -53,9 +53,9 @@ namespace projektas
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

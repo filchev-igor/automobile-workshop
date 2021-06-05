@@ -27,9 +27,9 @@ namespace projektas
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form f5 = new Form5();
+            Form form = new Form5();
             this.Hide();
-            f5.Show();
+            form.Show();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -228,7 +228,17 @@ namespace projektas
             //close the connection
 
             db.closeConnection();
+
+            bool isUserCreated = false;
+
+            if (isUserCreated)
+            {
+                Form form = new Form7();
+                this.Hide();
+                form.Show();
+            }
         }
+
         //check if the username already exist
         public Boolean checkUsername()
         {

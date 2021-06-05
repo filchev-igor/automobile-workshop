@@ -31,7 +31,6 @@ namespace projektas
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,9 +43,10 @@ namespace projektas
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(301, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 24);
+            this.label1.Size = new System.Drawing.Size(446, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Įveskite papildomą informaciją";
+            this.label1.Text = "Thanks! We have all the data to hunt you down";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -59,19 +59,6 @@ namespace projektas
             this.button1.Text = "Testi";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(193, 357);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 52);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Grįžti";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
@@ -115,7 +102,6 @@ namespace projektas
             this.ClientSize = new System.Drawing.Size(1015, 688);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Form4";
@@ -132,7 +118,6 @@ namespace projektas
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
