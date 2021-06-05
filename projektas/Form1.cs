@@ -40,17 +40,6 @@ namespace projektas
                 this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Mysql mysql = new Mysql();
-
-            MySqlConnection connection = mysql.getConnection();
-
-            MessageBox.Show(Convert.ToString(connection.State));
-
-            connection.Close();
-        }
-
         private void label5_MouseEnter(object sender, EventArgs e)
         {
             label5.ForeColor = Color.White;

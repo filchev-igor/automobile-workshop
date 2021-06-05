@@ -21,11 +21,6 @@ namespace projektas
             this.textBox2.Size = new Size(this.textBox2.Size.Width, 50);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form form = new Form7();
@@ -97,12 +92,37 @@ namespace projektas
             }
 
 
+            bool isUserLogged = false;
 
+            if (isUserLogged)
+            {
+                Form form = new Form7();
+                this.Hide();
+                form.Show();
+            }
         }
 
         private void Form5_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (!(textBox1.TextLength > 0))
+            {
+                textBox1.Text = "Password";
+                textBox1.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (!(textBox1.TextLength > 0) || textBox1.Text == "Password")
+            {
+                textBox1.Text = "";
+                textBox1.UseSystemPasswordChar = true;
+            }
         }
     }
 }

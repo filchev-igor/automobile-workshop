@@ -34,7 +34,7 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
@@ -151,16 +151,19 @@ namespace projektas
 
         private void textBox6_Enter(object sender, EventArgs e)
         {
+            /*
             String cpassword = textBox6.Text;
             if (cpassword.ToLower().Trim().Equals("confirm password"))
             {
                 textBox6.Text = "";
                 textBox6.UseSystemPasswordChar = true;
             }
+            */
         }
 
         private void textBox6_Leave(object sender, EventArgs e)
         {
+            /*
             String cpassword = textBox6.Text;
             if (cpassword.ToLower().Trim().Equals("confirm password") ||
                 cpassword.ToLower().Trim().Equals("password") ||
@@ -169,65 +172,14 @@ namespace projektas
                 textBox6.Text = "confirm password";
                 textBox6.UseSystemPasswordChar = false;
             }
+            */
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //add a new user
-          
-            DB db = new DB();
-           
-            MySqlCommand command = new MySqlCommand("INSERT INTO `vartotojai`(`firstname`, `lastname`, `emailadress`, `username`, `password`) VALUES (@fn, @ln, @email, @usn, @pass)", db.getConnection());
+            MysqlDB sqlDb = new MysqlDB();
 
-            command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = textBox1.Text;
-            command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = textBox2.Text;
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = textBox3.Text;
-            command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = textBox4.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = textBox5.Text;
-
-
-            //open the connection
-            db.openConnection();
-            //check if the textboxes contains the default values
-            if (!checkTexBoxesValues())
-            {
-                //check if the password equal the confirm password
-                if (textBox5.Text.Equals(textBox6.Text))
-                {
-                    //check if the username already exists
-                    if (checkUsername())
-                    {
-                        MessageBox.Show("Šitas vartotojo vardas jau egzistuoja, Pasirinkite kitą","slaptažodžio sutapimas",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
-                    }
-                    else
-                    {//execute the query
-                        if (command.ExecuteNonQuery() == 1)
-                        {
-                            MessageBox.Show("Jūsų paskyra buvo sukurta","Paskyra",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("KLAIDA");
-
-                        }
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Neteisingas patvirtinimo slaptažodis", "Slaptažodžio klaida", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                }
-                
-            }
-            else
-            {
-                MessageBox.Show("Iš pradžių įveskite savo duomenis","Nėra duomenų",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
-            }
-
-           
-            //close the connection
-
-            db.closeConnection();
+            sqlDb.createUser();
 
             bool isUserCreated = false;
 
