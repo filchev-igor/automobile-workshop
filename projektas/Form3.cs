@@ -12,9 +12,13 @@ namespace projektas
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        private string email;
+
+        public Form3(string username)
         {
             InitializeComponent();
+
+            this.email = username;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -23,15 +27,13 @@ namespace projektas
 
             if (isDataChanged)
             {
-                Form form = new Form7();
-                this.Hide();
-                form.Show();
+                
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Form7();
+            Form form = new Form7(email);
             this.Hide();
             form.Show();
         }

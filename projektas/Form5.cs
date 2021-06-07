@@ -21,13 +21,6 @@ namespace projektas
             this.textBox2.Size = new Size(this.textBox2.Size.Width, 50);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form form = new Form7();
-            this.Hide();
-            form.Show();
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form form = new Form6();
@@ -37,66 +30,55 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.Black;
+            label5.ForeColor = Color.White;
         }
 
         private void label5_MouseLeave(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.White;
+            label5.ForeColor = Color.Red;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DB db = new DB();
-            
-            String username = textBox2.Text;
-            String password = textBox1.Text;
+            string email = textBox2.Text.Trim();
+            string password = textBox1.Text.Trim();
 
-            DataTable table = new DataTable();
+            Fields checkFields = new Fields();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            bool isNotValidEmail = !checkFields.isValidEmail(email);
+            bool isNotValidPassword = !checkFields.isValidPassword(password);
 
+            label2.Text = "";
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `vartotojai` WHERE `username`= @usn and `password`= @pass,", db.getConnection());
-
-            command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
-
-            adapter.SelectCommand = command;
-
-            adapter.Fill(table);
-            //check if the user exist or not
-            if (table.Rows.Count > 0)
+            if (isNotValidEmail || isNotValidPassword)
             {
-                MessageBox.Show("TAIP");
+                if (isNotValidEmail)
+                    label2.Text += "Not valid email";
+
+                if (isNotValidPassword)
+                    label2.Text += "Password is too short";
+
+                return;
+            }
+
+            MysqlDB sqlDb = new MysqlDB();
+
+            bool isRegistrationPossible = sqlDb.isSignInPossible(email, password);
+
+            if (!isRegistrationPossible)
+            {
+                label2.Text = "Check email or password!";
+
+                return;
             }
             else
             {
-                if (username.Trim().Equals(""))
-                {
-                    MessageBox.Show("Tam, kad prisijungti, įveskite vartotojo vardą", "Neįvestas vartotojo vardas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (username.Trim().Equals(""))
-                {
-                    MessageBox.Show("Tam, kad prisijungti, įveskite slaptažodį", "Neįvestas slaptažodis", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Neteisingas vartotojo vardas ar slaptažodis", "Neteisingi duomenys", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-
-            bool isUserLogged = false;
-
-            if (isUserLogged)
-            {
-                Form form = new Form7();
+                Form form = new Form7(email);
                 this.Hide();
                 form.Show();
             }

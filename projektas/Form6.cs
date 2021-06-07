@@ -32,12 +32,12 @@ namespace projektas
 
         private void label5_MouseEnter(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.Red;
+            label5.ForeColor = Color.White;
         }
 
         private void label5_MouseLeave(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.White;
+            label5.ForeColor = Color.Red;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace projektas
 
             if (isUserCreated)
             {
-                Form form = new Form7();
+                Form form = new Form7(email);
                 this.Hide();
                 form.Show();
             }

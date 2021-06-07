@@ -36,6 +36,7 @@ namespace projektas
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace projektas
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(921, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 27);
@@ -81,7 +82,7 @@ namespace projektas
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(314, 542);
+            this.linkLabel1.Location = new System.Drawing.Point(314, 529);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(292, 18);
             this.linkLabel1.TabIndex = 3;
@@ -121,12 +122,21 @@ namespace projektas
             this.textBox2.TabIndex = 6;
             this.textBox2.Text = "vartotojo vardas";
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(194, 566);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(518, 53);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "label2";
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(965, 685);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
@@ -151,5 +161,6 @@ namespace projektas
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
     }
 }
