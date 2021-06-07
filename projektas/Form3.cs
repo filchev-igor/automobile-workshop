@@ -33,7 +33,7 @@ namespace projektas
 
             bool isNotValidEmail = !checkFields.isValidEmail(email);
             bool isNotValidPhone = !checkFields.isValidPassword(phone);
-            bool isNotValidCarNumber = checkFields.isValidPassword(carNumber);
+            bool isNotValidCarNumber = checkFields.isValidCarNumber(carNumber);
 
             label8.Text = "";
 
@@ -55,7 +55,7 @@ namespace projektas
 
             if (isDataChanged)
             {
-                
+                label8.Text = "Your data has been updated";
             }
         }
 
@@ -71,7 +71,7 @@ namespace projektas
             DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
-                this.Close();
+                Application.Exit();
         }
 
         private void label6_Click(object sender, EventArgs e)

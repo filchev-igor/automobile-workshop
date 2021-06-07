@@ -137,5 +137,31 @@ namespace projektas
 
             return data;
         }
+
+        //public bool isDataChangeAllowed(string email, string phone, string carNumber)
+        //{
+            /*
+            bool returnValue = false;
+
+            MySqlConnection connection = this.getConnection();
+
+            string sql = "SELECT * FROM users WHERE email=@email AND password=@password";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+
+            object result = command.ExecuteScalar();
+            int rows = Convert.ToInt32(result);
+
+            if (rows > 0)
+                returnValue = true;
+
+            connection.Close();
+
+            return returnValue;
+            */
+        //}
     }
 }
