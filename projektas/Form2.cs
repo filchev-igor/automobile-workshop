@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,14 @@ namespace projektas
     public partial class Form2 : Form
     {
         private string userId;
-        List<string> servicesNames;
-        List<bool> servicesValues;
+        private string checkboxDataJson;
 
-        public Form2(string id, List<string> checkboxNames, List<bool> checkboxValues)
+        public Form2(string id, string jsonData)
         {
             InitializeComponent();
 
             this.userId = id;
-            this.servicesNames = checkboxNames;
-            this.servicesValues = checkboxValues;
+            this.checkboxDataJson = jsonData;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Convert.ToString(dateTimePicker1.Value));
+            string dateTime = Convert.ToString(dateTimePicker1.Value);
 
             return;
 

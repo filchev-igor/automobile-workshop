@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,9 +29,8 @@ namespace projektas
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            List<string> servicesNames = new List<string>();
-            List<bool> servicesValues = new List<bool>();
+        {            
+            IDictionary<string, bool> services = new Dictionary<string, bool>();
 
             foreach (Control c in this.Controls)
             {
@@ -39,12 +39,13 @@ namespace projektas
                     string checkboxName = c.Text;
                     bool checkboxState = ((CheckBox) c).Checked;
 
-                    servicesNames.Add(checkboxName);
-                    servicesValues.Add(checkboxState);
+                    services.Add(checkboxName, checkboxState);
                 }
             }
 
-            Form form = new Form2(userId, servicesNames, servicesValues);
+            string jsonString = JsonConvert.SerializeObject(services);
+
+            Form form = new Form2(userId, jsonString);
             this.Hide();
             form.Show();
         }
