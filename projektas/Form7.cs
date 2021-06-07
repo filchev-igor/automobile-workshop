@@ -49,5 +49,19 @@ namespace projektas
         {
             label5.ForeColor = Color.Red;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form form = new Form8(email);
+            this.Hide();
+            form.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form form = new Form9(email);
+            this.Hide();
+            form.Show();
+        }
     }
 }

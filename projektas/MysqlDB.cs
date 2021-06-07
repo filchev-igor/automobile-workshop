@@ -199,6 +199,32 @@ namespace projektas
             return returnValue;
         }
 
+        public bool isPasswordUpdated(string email, string password)
+        {
+            bool returnValue = false;
+
+            string encodedPassword = this.getHashedPassword(password);
+
+            MySqlConnection connection = this.getConnection();
+
+            string sql = "UPDATE users " +
+                "SET " +
+                "password=@password" +
+                "WHERE email=@email AND password=@password";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@password", MySqlDbType.LongText).Value = encodedPassword;
+
+            if (command.ExecuteNonQuery() == 1)
+                returnValue = true;
+
+            connection.Close();
+
+            return returnValue;
+        }
+
         private string getHashedPassword(string password)
         {
             // byte array representation of that string
@@ -215,6 +241,27 @@ namespace projektas
                .ToLower();
 
             return encoded;
+        }
+
+        public bool isAccountDeleted(string email)
+        {
+            bool returnValue = false;
+
+            MySqlConnection connection = this.getConnection();
+
+            string sql = "DELETE FROM users " +
+                "WHERE email=@email";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+
+            if (command.ExecuteNonQuery() == 1)
+                returnValue = true;
+
+            connection.Close();
+
+            return returnValue;
         }
     }
 }

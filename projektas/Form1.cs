@@ -40,7 +40,7 @@ namespace projektas
             DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
-                this.Close();
+                Application.Exit();
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
