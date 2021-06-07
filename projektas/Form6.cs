@@ -18,13 +18,6 @@ namespace projektas
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form f5 = new Form5();
-            this.Hide();
-            f5.Show();
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form form = new Form5();
@@ -39,7 +32,7 @@ namespace projektas
 
         private void label5_MouseEnter(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.Black;
+            label5.ForeColor = Color.Red;
         }
 
         private void label5_MouseLeave(object sender, EventArgs e)
@@ -47,141 +40,58 @@ namespace projektas
             label5.ForeColor = Color.White;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form6_Load(object sender, EventArgs e)
-        {
-            this.ActiveControl = label1;
-        }
-
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            String fname = textBox1.Text;
-            if (fname.ToLower().Trim().Equals("first name"))
-            {
-                textBox1.Text = "";
-            }
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            String fname = textBox1.Text;
-            if (fname.ToLower().Trim().Equals("first name") || fname.Trim().Equals(""))
-            {
-                textBox1.Text = "first name";
-            }
-        }
-
-        private void textBox2_Enter(object sender, EventArgs e)
-        {
-            String lname = textBox1.Text;
-            if (lname.ToLower().Trim().Equals("last name"))
-            {
-                textBox2.Text = "";
-            }
-        }
-
-        private void textBox2_Leave(object sender, EventArgs e)
-        {
-            String lname = textBox1.Text;
-            if (lname.ToLower().Trim().Equals("last name") || lname.Trim().Equals(""))
-            {
-                textBox2.Text = "last name";
-            }
-        }
-
-        private void textBox3_Enter(object sender, EventArgs e)
-        {
-            String email = textBox3.Text;
-            if (email.ToLower().Trim().Equals("email"))
-            {
-                textBox3.Text = "";
-            }
-        }
-
-        private void textBox3_Leave(object sender, EventArgs e)
-        {
-            String email = textBox3.Text;
-            if (email.ToLower().Trim().Equals("email") || email.Trim().Equals(""))
-            {
-                textBox3.Text = "email";
-            }
-        }
-
-        private void textBox4_Enter(object sender, EventArgs e)
-        {
-            String username = textBox4.Text;
-            if (username.ToLower().Trim().Equals("username"))
-            {
-                textBox4.Text = "";
-            }
-        }
-
-        private void textBox4_Leave(object sender, EventArgs e)
-        {
-            String username = textBox4.Text;
-            if (username.ToLower().Trim().Equals("username") || username.Trim().Equals(""))
-            {
-                textBox4.Text = "email";
-            }
-        }
-
-        private void textBox5_Enter(object sender, EventArgs e)
-        {
-            String password = textBox5.Text;
-            if (password.ToLower().Trim().Equals("password"))
-            {
-                textBox5.Text = "";
-                textBox5.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void textBox5_Leave(object sender, EventArgs e)
-        {
-            String password = textBox5.Text;
-            if (password.ToLower().Trim().Equals("password") || password.Trim().Equals(""))
-            {
-                textBox5.Text = "password";
-                textBox5.UseSystemPasswordChar = false;
-            }
-        }
-
-        private void textBox6_Enter(object sender, EventArgs e)
-        {
-            /*
-            String cpassword = textBox6.Text;
-            if (cpassword.ToLower().Trim().Equals("confirm password"))
-            {
-                textBox6.Text = "";
-                textBox6.UseSystemPasswordChar = true;
-            }
-            */
-        }
-
-        private void textBox6_Leave(object sender, EventArgs e)
-        {
-            /*
-            String cpassword = textBox6.Text;
-            if (cpassword.ToLower().Trim().Equals("confirm password") ||
-                cpassword.ToLower().Trim().Equals("password") ||
-                cpassword.Trim().Equals(""))
-            {
-                textBox6.Text = "confirm password";
-                textBox6.UseSystemPasswordChar = false;
-            }
-            */
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
+            string email = textBox1.Text.Trim();
+            string password = textBox2.Text.Trim();
+            string passwordRepeat = textBox3.Text.Trim();
+            string name = textBox4.Text.Trim();
+            string surname = textBox5.Text.Trim();
+            string phone = textBox7.Text.Trim();
+            string carNumber = textBox8.Text.Trim();
+
+            Fields checkFields = new Fields();
+
+            bool isNotValidEmail = !checkFields.isValidEmail(email);
+            bool isNotValidPassword = !checkFields.isValidPassword(password);
+            bool isNotValidPasswordRepeat = !(password == passwordRepeat);
+            bool isNotValidPhone = !checkFields.isValidPassword(phone);
+            bool isNotValidCarNumber = checkFields.isValidPassword(carNumber);
+
+            label2.Text = "";
+
+            if (isNotValidEmail || isNotValidPassword || isNotValidPasswordRepeat || isNotValidPhone || isNotValidCarNumber)
+            {
+                if (isNotValidEmail)
+                    label2.Text += "Not valid email";
+
+                if (isNotValidPassword)
+                    label2.Text += "Password is too short";
+
+                if (isNotValidPasswordRepeat)
+                    label2.Text += "Passwords does not match";
+
+                if (isNotValidPhone)
+                    label2.Text += "Phone should contain numbers only (without +)";
+
+                if (isNotValidCarNumber)
+                    label2.Text += "Check the car number again";
+
+                return;
+            }
+                        
             MysqlDB sqlDb = new MysqlDB();
 
-            sqlDb.createUser();
+            bool isRegistrationPossible = sqlDb.isRegistrationPossible(email, phone, carNumber);
 
-            bool isUserCreated = false;
+            if (!isRegistrationPossible)
+            {
+                label2.Text = "Check email, phone or car number!";
+
+                return;
+            }
+
+            bool isUserCreated = sqlDb.createUser(email, password, name, surname, phone, carNumber);
 
             if (isUserCreated)
             {
@@ -189,60 +99,6 @@ namespace projektas
                 this.Hide();
                 form.Show();
             }
-        }
-
-        //check if the username already exist
-        public Boolean checkUsername()
-        {
-            DB db = new DB();
-            String username = textBox2.Text;
-            
-
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `vartotojai` WHERE `username`= @usn", db.getConnection());
-
-            command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
-            
-
-            adapter.SelectCommand = command;
-
-            adapter.Fill(table);
-            //check if this user already exist in the db
-            if (table.Rows.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-            
-        }
-
-
-
-        //check if the textboxes contain the deault values
-        public Boolean checkTexBoxesValues()
-        {
-            String fname = textBox1.Text;
-            String lname = textBox2.Text;
-            String email = textBox3.Text;
-            String uname = textBox4.Text;
-            String pass = textBox5.Text;
-            if(fname.Equals("first name") || lname.Equals("last name") || email.Equals("email asddress") || uname.Equals("username") || pass.Equals("password"))
-            {
-                return true;
-            }
-              else
-            { 
-            return false;
-            }
-                    
         }
     }
 }

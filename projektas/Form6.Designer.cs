@@ -41,6 +41,7 @@ namespace projektas
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@ namespace projektas
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(1009, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 27);
@@ -90,9 +91,6 @@ namespace projektas
             this.textBox1.Size = new System.Drawing.Size(588, 27);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "E-mail";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // textBox2
             // 
@@ -102,8 +100,6 @@ namespace projektas
             this.textBox2.Size = new System.Drawing.Size(588, 27);
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "Password";
-            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
-            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // textBox3
             // 
@@ -113,8 +109,6 @@ namespace projektas
             this.textBox3.Size = new System.Drawing.Size(588, 27);
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "Password repeat";
-            this.textBox3.Enter += new System.EventHandler(this.textBox3_Enter);
-            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // textBox4
             // 
@@ -124,8 +118,6 @@ namespace projektas
             this.textBox4.Size = new System.Drawing.Size(588, 27);
             this.textBox4.TabIndex = 6;
             this.textBox4.Text = "Vardas";
-            this.textBox4.Enter += new System.EventHandler(this.textBox4_Enter);
-            this.textBox4.Leave += new System.EventHandler(this.textBox4_Leave);
             // 
             // textBox5
             // 
@@ -135,8 +127,6 @@ namespace projektas
             this.textBox5.Size = new System.Drawing.Size(588, 27);
             this.textBox5.TabIndex = 7;
             this.textBox5.Text = "Pavarde";
-            this.textBox5.Enter += new System.EventHandler(this.textBox5_Enter);
-            this.textBox5.Leave += new System.EventHandler(this.textBox5_Leave);
             // 
             // button3
             // 
@@ -180,12 +170,23 @@ namespace projektas
             this.textBox8.TabIndex = 12;
             this.textBox8.Text = "Automobilio valstybinis numeris";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(345, 519);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 46);
+            this.label2.TabIndex = 13;
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1054, 710);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.linkLabel1);
@@ -198,7 +199,6 @@ namespace projektas
             this.Controls.Add(this.panel1);
             this.Name = "Form6";
             this.Text = "Form6";
-            this.Load += new System.EventHandler(this.Form6_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -220,5 +220,6 @@ namespace projektas
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label2;
     }
 }

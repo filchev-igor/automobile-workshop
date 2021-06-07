@@ -37,26 +37,54 @@ namespace projektas
             return connection;
         }
 
-        public void createUser()
+        public bool isRegistrationPossible(string email, string phone, string carNumber)
         {
+            bool returnValue = false;
+
             MySqlConnection connection = this.getConnection();
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users`(`email`, `password`, `name`, `surname`, `phone`, `carNumber`) VALUES (@email, @password, @name, @surname, @phone, @carNumber)", connection);
+            string sql = "SELECT * FROM users WHERE email=@email OR phone=@phone OR carNumber=@carNumber";
 
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = "user@user.com";
-            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = "No";
-            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = "Axel";
-            command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = "Foley";
-            command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = "+3764097864";
-            command.Parameters.Add("@carNumber", MySqlDbType.VarChar).Value = "AAA1111";
+            MySqlCommand command = new MySqlCommand(sql, connection);
 
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
+            command.Parameters.Add("@carNumber", MySqlDbType.VarChar).Value = carNumber;
 
-            if (command.ExecuteNonQuery() == 1)
-                MessageBox.Show("Your Account Has Been Created", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
-             else
-                MessageBox.Show("ERROR");
+            object result = command.ExecuteScalar();
+            int rows = Convert.ToInt32(result);
+
+            if (rows == 0)
+                returnValue = true;
 
             connection.Close();
+
+            return returnValue;
+        }
+
+        public bool createUser(string email, string password, string name, string surname, string phone, string carNumber)
+        {
+            bool returnValue = false;
+
+            MySqlConnection connection = this.getConnection();
+
+            string sql = "INSERT INTO users(email, password, name, surname, phone, carNumber) VALUES (@email, @password, @name, @surname, @phone, @carNumber)";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+            command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname;
+            command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
+            command.Parameters.Add("@carNumber", MySqlDbType.VarChar).Value = carNumber;
+
+            if (command.ExecuteNonQuery() == 1)
+                returnValue = true;
+
+            connection.Close();
+
+            return returnValue;
         }
     }
 }
