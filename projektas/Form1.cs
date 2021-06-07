@@ -34,11 +34,11 @@ namespace projektas
             this.Hide();
             form.Show();
 
-            if (checkBox3.Checked)
-            {
+           // if (checkBox3.Checked)
+          //  {
                
-               listBox1.Items.Add(checkBox3.Text);
-            }
+          //     listBox1.Items.Add(checkBox3.Text);
+          //  }
         }
 
         private void label5_Click(object sender, EventArgs e)
