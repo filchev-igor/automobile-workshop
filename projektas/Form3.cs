@@ -23,6 +23,34 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string email = textBox2.Text.Trim();
+            string name = textBox1.Text.Trim();
+            string surname = textBox5.Text.Trim();
+            string phone = textBox3.Text.Trim();
+            string carNumber = textBox4.Text.Trim();
+
+            Fields checkFields = new Fields();
+
+            bool isNotValidEmail = !checkFields.isValidEmail(email);
+            bool isNotValidPhone = !checkFields.isValidPassword(phone);
+            bool isNotValidCarNumber = checkFields.isValidPassword(carNumber);
+
+            label8.Text = "";
+
+            if (isNotValidEmail || isNotValidPhone || isNotValidCarNumber)
+            {
+                if (isNotValidEmail)
+                    label8.Text += "Not valid email";
+
+                if (isNotValidPhone)
+                    label8.Text += "Phone should contain numbers only (without +)";
+
+                if (isNotValidCarNumber)
+                    label8.Text += "Check the car number again";
+
+                return;
+            }
+
             bool isDataChanged = false;
 
             if (isDataChanged)
@@ -46,29 +74,32 @@ namespace projektas
                 this.Close();
         }
 
-        private void label5_MouseEnter(object sender, EventArgs e)
-        {
-            label5.ForeColor = Color.White;
-        }
-
-        private void label5_MouseLeave(object sender, EventArgs e)
-        {
-            label5.ForeColor = Color.Red;
-        }
-
         private void label6_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void label6_MouseEnter(object sender, EventArgs e)
         {
-            label6.ForeColor = Color.Black;
+            label6.ForeColor = Color.White;
         }
 
         private void label6_MouseLeave(object sender, EventArgs e)
         {
-            label6.ForeColor = Color.White;
+            label6.ForeColor = Color.Red;
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            MysqlDB sqlDb = new MysqlDB();
+
+            string[] data = sqlDb.getPersonalData(email);
+
+            textBox1.Text = data[0];
+            textBox5.Text = data[1];
+            textBox3.Text = data[2];
+            textBox4.Text = data[3];
+            textBox2.Text = email;
         }
     }
 }

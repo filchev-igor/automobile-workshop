@@ -111,9 +111,31 @@ namespace projektas
             return returnValue;
         }
 
-        public void getPersonalData()
+        public string[] getPersonalData(string email)
         {
+            string[] data = new string[4];
 
+            MySqlConnection connection = this.getConnection();
+
+            string sql = "SELECT * FROM users WHERE email=@email LIMIT 0, 1";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+
+            MySqlDataReader rdr = command.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                data[0] = Convert.ToString(rdr[3]);
+                data[1] = Convert.ToString(rdr[4]);
+                data[2] = Convert.ToString(rdr[5]);
+                data[3] = Convert.ToString(rdr[6]);
+            }
+
+            connection.Close();
+
+            return data;
         }
     }
 }

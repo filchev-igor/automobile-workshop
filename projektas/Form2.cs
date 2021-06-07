@@ -13,21 +13,25 @@ namespace projektas
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private string email;
+
+        public Form2(string username)
         {
             InitializeComponent();
+
+            this.email = username;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Form1();
+            Form form = new Form1(email);
             this.Hide();
             form.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form = new Form4();
+            Form form = new Form4(email);
             this.Hide();
             form.Show();
         }

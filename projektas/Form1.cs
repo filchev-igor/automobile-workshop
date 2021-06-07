@@ -14,10 +14,13 @@ namespace projektas
 {
     public partial class Form1 : Form
     {
+        private string email;
         
-        public Form1()
+        public Form1(string username)
         {
             InitializeComponent();
+
+            this.email = username;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,7 +30,7 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form = new Form2();
+            Form form = new Form2(email);
             this.Hide();
             form.Show();
         }
@@ -52,7 +55,7 @@ namespace projektas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form form = new Form7();
+            Form form = new Form7(email);
             this.Hide();
             form.Show();
         }
