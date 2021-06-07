@@ -14,13 +14,13 @@ namespace projektas
 {
     public partial class Form4 : Form
     {
-        private string email;
+        private string userId;
 
-        public Form4(string username)
+        public Form4(string id)
         {
             InitializeComponent();
 
-            this.email = username;
+            this.userId = id;
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form = new Form7(email);
+            Form form = new Form7(userId);
             this.Hide();
             form.Show();
         }

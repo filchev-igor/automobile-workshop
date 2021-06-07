@@ -12,13 +12,13 @@ namespace projektas
 {
     public partial class Form3 : Form
     {
-        private string email;
+        private string userId;
 
-        public Form3(string username)
+        public Form3(string id)
         {
             InitializeComponent();
 
-            this.email = username;
+            this.userId = id;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace projektas
 
             MysqlDB sqlDb = new MysqlDB();
 
-            bool isDataChangeAllowed = sqlDb.isDataChangeAllowed(email, phone, carNumber);
+            bool isDataChangeAllowed = sqlDb.isDataChangeAllowed(email, phone, carNumber, userId);
 
             if (!isDataChangeAllowed)
             {
@@ -67,7 +67,7 @@ namespace projektas
                 return;
             }
 
-            bool isDataUpdated = sqlDb.isDataUpdated(email, name, surname, phone, carNumber, password);
+            bool isDataUpdated = sqlDb.isDataUpdated(email, name, surname, phone, carNumber, password, userId);
 
             if (isDataUpdated)
                 label8.Text = "Your data has been updated";
@@ -77,7 +77,7 @@ namespace projektas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Form7(email);
+            Form form = new Form7(userId);
             this.Hide();
             form.Show();
         }
@@ -104,13 +104,13 @@ namespace projektas
         {
             MysqlDB sqlDb = new MysqlDB();
 
-            string[] data = sqlDb.getPersonalData(email);
+            string[] data = sqlDb.getPersonalData(userId);
 
-            textBox1.Text = data[0];
-            textBox5.Text = data[1];
-            textBox3.Text = data[2];
-            textBox4.Text = data[3];
-            textBox2.Text = email;
+            textBox1.Text = data[1];
+            textBox5.Text = data[5];
+            textBox3.Text = data[3];
+            textBox4.Text = data[4];
+            textBox2.Text = data[0];
         }
     }
 }

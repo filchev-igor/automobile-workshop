@@ -12,13 +12,13 @@ namespace projektas
 {
     public partial class Form9 : Form
     {
-        private string email;
+        private string userId;
 
-        public Form9(string username)
+        public Form9(string id)
         {
             InitializeComponent();
 
-            this.email = username;
+            this.userId = id;
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace projektas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Form7(email);
+            Form form = new Form7(userId);
             this.Hide();
             form.Show();
         }
@@ -45,7 +45,7 @@ namespace projektas
 
             MysqlDB sqlDb = new MysqlDB();
 
-            bool isAccountDeleted = sqlDb.isAccountDeleted(email);
+            bool isAccountDeleted = sqlDb.isAccountDeleted(userId);
 
             if (isAccountDeleted)
             {

@@ -12,25 +12,25 @@ namespace projektas
 {
     public partial class Form7 : Form
     {
-        private string email;
+        private string userId;
 
-        public Form7(string username)
+        public Form7(string id)
         {
             InitializeComponent();
 
-            this.email = username;
+            this.userId = id;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form = new Form1(email);
+            Form form = new Form1(userId);
             this.Hide();
             form.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Form3(email);
+            Form form = new Form3(userId);
             this.Hide();
             form.Show();
         }
@@ -52,14 +52,14 @@ namespace projektas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form form = new Form8(email);
+            Form form = new Form8(userId);
             this.Hide();
             form.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form form = new Form9(email);
+            Form form = new Form9(userId);
             this.Hide();
             form.Show();
         }

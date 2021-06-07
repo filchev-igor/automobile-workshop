@@ -13,13 +13,13 @@ namespace projektas
 {
     public partial class Form1 : Form
     {
-        private string email;
+        private string userId;
         
-        public Form1(string username)
+        public Form1(string id)
         {
             InitializeComponent();
 
-            this.email = username;
+            this.userId = id;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,8 +29,8 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[,] services;
-            int i = 0;
+            List<string> servicesNames = new List<string>();
+            List<bool> servicesValues = new List<bool>();
 
             foreach (Control c in this.Controls)
             {
@@ -39,17 +39,12 @@ namespace projektas
                     string checkboxName = c.Text;
                     bool checkboxState = ((CheckBox) c).Checked;
 
-                    string[] checkboxArray = { checkboxName, Convert.ToString(checkboxState) };
-
-                    services[i] = checkboxArray;
-
-                    i++;
+                    servicesNames.Add(checkboxName);
+                    servicesValues.Add(checkboxState);
                 }
             }
 
-            return;
-
-            Form form = new Form2(email);
+            Form form = new Form2(userId, servicesNames, servicesValues);
             this.Hide();
             form.Show();
         }
@@ -74,7 +69,7 @@ namespace projektas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form form = new Form7(email);
+            Form form = new Form7(userId);
             this.Hide();
             form.Show();
         }

@@ -12,13 +12,13 @@ namespace projektas
 {
     public partial class Form8 : Form
     {
-        private string email;
+        private string userId;
 
-        public Form8(string username)
+        public Form8(string id)
         {
             InitializeComponent();
 
-            email = username;
+            this.userId = id;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace projektas
 
             MysqlDB sqlDb = new MysqlDB();
 
-            bool isPasswordUpdated = sqlDb.isPasswordUpdated(email, newPassword);
+            bool isPasswordUpdated = sqlDb.isPasswordUpdated(userId, newPassword);
 
             if (isPasswordUpdated)
                 label8.Text = "Your password has been updated";
@@ -65,7 +65,7 @@ namespace projektas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Form7(email);
+            Form form = new Form7(userId);
             this.Hide();
             form.Show();
         }

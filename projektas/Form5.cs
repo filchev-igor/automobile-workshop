@@ -68,9 +68,12 @@ namespace projektas
 
             MysqlDB sqlDb = new MysqlDB();
 
-            bool isRegistrationPossible = sqlDb.isSignInPossible(email, password);
+            string[] logInData = sqlDb.isSignInPossible(email, password);
 
-            if (!isRegistrationPossible)
+            bool isLogInPossible = Convert.ToBoolean(logInData[0]);
+            string userId = logInData[1];
+
+            if (!isLogInPossible)
             {
                 label2.Text = "Check email or password!";
 
@@ -78,7 +81,7 @@ namespace projektas
             }
             else
             {
-                Form form = new Form7(email);
+                Form form = new Form7(userId);
                 this.Hide();
                 form.Show();
             }

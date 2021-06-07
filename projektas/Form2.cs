@@ -13,25 +13,33 @@ namespace projektas
 {
     public partial class Form2 : Form
     {
-        private string email;
+        private string userId;
+        List<string> servicesNames;
+        List<bool> servicesValues;
 
-        public Form2(string username)
+        public Form2(string id, List<string> checkboxNames, List<bool> checkboxValues)
         {
             InitializeComponent();
 
-            this.email = username;
+            this.userId = id;
+            this.servicesNames = checkboxNames;
+            this.servicesValues = checkboxValues;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = new Form1(email);
+            Form form = new Form1(userId);
             this.Hide();
             form.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form = new Form4(email);
+            MessageBox.Show(Convert.ToString(dateTimePicker1.Value));
+
+            return;
+
+            Form form = new Form4(userId);
             this.Hide();
             form.Show();
         }
@@ -41,7 +49,7 @@ namespace projektas
             DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
-                this.Close();
+                Application.Exit();
         }
     }
 }

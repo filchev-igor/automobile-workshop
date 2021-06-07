@@ -63,9 +63,10 @@ namespace projektas
             return returnValue;
         }
 
-        public bool createUser(string email, string password, string name, string surname, string phone, string carNumber)
-        {
-            bool returnValue = false;
+        public string[] createUser(string email, string password, string name, string surname, string phone, string carNumber)
+        {            
+            string userId = "";
+            string[] returnValue = {"false", userId};
 
             string encodedPassword = this.getHashedPassword(password);
 
@@ -83,59 +84,73 @@ namespace projektas
             command.Parameters.Add("@carNumber", MySqlDbType.VarChar).Value = carNumber;
 
             if (command.ExecuteNonQuery() == 1)
-                returnValue = true;
+            {
+                returnValue[0] = "true";
+                returnValue[1] = Convert.ToString(command.LastInsertedId);
+            }
 
             connection.Close();
 
             return returnValue;
         }
 
-        public bool isSignInPossible(string email, string password)
+        public string[] isSignInPossible(string email, string password)
         {
-            bool returnValue = false;
+            string userId = "";
+            int rows = 0;
+
+            string[] returnValue = {"false", userId};
 
             string encodedPassword = this.getHashedPassword(password);
 
             MySqlConnection connection = this.getConnection();
 
-            string sql = "SELECT * FROM users WHERE email=@email AND password=@password";
+            string sql = "SELECT COUNT(*) AS count, id FROM users WHERE email=@email AND password=@password";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
             command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
             command.Parameters.Add("@password", MySqlDbType.LongText).Value = encodedPassword;
 
-            object result = command.ExecuteScalar();
-            int rows = Convert.ToInt32(result);
+            MySqlDataReader rdr = command.ExecuteReader();
 
-            if (rows > 0)
-                returnValue = true;
+            while (rdr.Read())
+            {
+                rows = Convert.ToInt32(rdr["count"]);
+                userId = Convert.ToString(rdr["id"]);
+            }
+
+            if (rows > 0) {
+                returnValue[0] = "true";
+                returnValue[1] = userId;
+            }
 
             connection.Close();
 
             return returnValue;
         }
 
-        public string[] getPersonalData(string email)
+        public string[] getPersonalData(string userId)
         {
-            string[] data = new string[4];
+            string[] data = new string[5];
 
             MySqlConnection connection = this.getConnection();
 
-            string sql = "SELECT * FROM users WHERE email=@email LIMIT 0, 1";
+            string sql = "SELECT email, name, surname, phone, carNumber FROM users WHERE id=@userId LIMIT 0, 1";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
 
             MySqlDataReader rdr = command.ExecuteReader();
 
             while (rdr.Read())
             {
-                data[0] = Convert.ToString(rdr[3]);
-                data[1] = Convert.ToString(rdr[4]);
-                data[2] = Convert.ToString(rdr[5]);
-                data[3] = Convert.ToString(rdr[6]);
+                data[0] = Convert.ToString(rdr["email"]);
+                data[1] = Convert.ToString(rdr["name"]);
+                data[2] = Convert.ToString(rdr["surname"]);
+                data[3] = Convert.ToString(rdr["phone"]);
+                data[4] = Convert.ToString(rdr["carNumber"]);
             }
 
             connection.Close();
@@ -143,19 +158,20 @@ namespace projektas
             return data;
         }
 
-        public bool isDataChangeAllowed(string email, string phone, string carNumber)
+        public bool isDataChangeAllowed(string email, string phone, string carNumber, string userId)
         {
             bool returnValue = true;
 
             MySqlConnection connection = this.getConnection();
 
-            string sql = "SELECT * FROM users WHERE email=@email OR phone=@phone OR carNumber=@carNumber";
+            string sql = "SELECT * FROM users WHERE email=@email OR phone=@phone OR carNumber=@carNumber AND id=@userId";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
             command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
             command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
             command.Parameters.Add("@carNumber", MySqlDbType.VarChar).Value = carNumber;
+            command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
 
             object result = command.ExecuteScalar();
             int rows = Convert.ToInt32(result);
@@ -168,7 +184,7 @@ namespace projektas
             return returnValue;
         }
 
-        public bool isDataUpdated(string email, string name, string surname, string phone, string carNumber, string password)
+        public bool isDataUpdated(string email, string name, string surname, string phone, string carNumber, string password, string userId)
         {
             bool returnValue = false;
 
@@ -179,7 +195,7 @@ namespace projektas
             string sql = "UPDATE users " +
                 "SET " +
                 "email=@email, name=@name, surname=@surname, phone=@phone, carNumber=@carNumber" +
-                "WHERE email=@email AND password=@password";
+                "WHERE password=@password AND id=@userId";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
@@ -189,6 +205,7 @@ namespace projektas
             command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
             command.Parameters.Add("@carNumber", MySqlDbType.VarChar).Value = carNumber;
             command.Parameters.Add("@password", MySqlDbType.LongText).Value = encodedPassword;
+            command.Parameters.Add("@userId", MySqlDbType.LongText).Value = userId;
 
             if (command.ExecuteNonQuery() == 1)
                 returnValue = true;
@@ -198,7 +215,7 @@ namespace projektas
             return returnValue;
         }
 
-        public bool isPasswordUpdated(string email, string password)
+        public bool isPasswordUpdated(string userId, string password)
         {
             bool returnValue = false;
 
@@ -209,11 +226,11 @@ namespace projektas
             string sql = "UPDATE users " +
                 "SET " +
                 "password=@password" +
-                "WHERE email=@email AND password=@password";
+                "WHERE id=@userId AND password=@password";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
             command.Parameters.Add("@password", MySqlDbType.LongText).Value = encodedPassword;
 
             if (command.ExecuteNonQuery() == 1)
@@ -242,18 +259,18 @@ namespace projektas
             return encoded;
         }
 
-        public bool isAccountDeleted(string email)
+        public bool isAccountDeleted(string userId)
         {
             bool returnValue = false;
 
             MySqlConnection connection = this.getConnection();
 
             string sql = "DELETE FROM users " +
-                "WHERE email=@email";
+                "WHERE id=@userId";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
 
             if (command.ExecuteNonQuery() == 1)
                 returnValue = true;
