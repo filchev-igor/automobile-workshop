@@ -215,6 +215,7 @@
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="services.sql" />
     <Content Include="users.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

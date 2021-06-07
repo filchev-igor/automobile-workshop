@@ -15,12 +15,16 @@ namespace projektas
     public partial class Form4 : Form
     {
         private string userId;
+        private string dateTime;
+        private IDictionary<string, bool> services;
 
-        public Form4(string id)
+        public Form4(string id, string dateTimeData, IDictionary<string, bool> data)
         {
             InitializeComponent();
 
             this.userId = id;
+            this.dateTime = dateTimeData;
+            this.services = data;
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -37,22 +41,20 @@ namespace projektas
 
         private void label5_MouseLeave(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.White;
+            label5.ForeColor = Color.Red;
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.Black;
+            label5.ForeColor = Color.White;
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            if (alert == DialogResult.Yes)
+                Application.Exit();
         }
     }
 }

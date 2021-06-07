@@ -46,7 +46,6 @@ namespace projektas
             this.label1.Size = new System.Drawing.Size(446, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thanks! We have all the data to hunt you down";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 

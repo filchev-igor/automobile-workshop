@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -272,6 +273,30 @@ namespace projektas
 
             command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
 
+            if (command.ExecuteNonQuery() == 1)
+                returnValue = true;
+
+            connection.Close();
+
+            return returnValue;
+        }
+
+        public bool isNewServiceAdded(string userId, string dateTime, IDictionary<string, bool> services)
+        {
+            bool returnValue = false;
+
+            MySqlConnection connection = this.getConnection();
+
+            string jsonString = JsonConvert.SerializeObject(services);
+
+            string sql = "INSERT INTO services(userId, typeOfService, dateTime) VALUES (@userId, @jsonString, @dateTime)";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
+            command.Parameters.Add("@typeOfService", MySqlDbType.VarChar).Value = jsonString;
+            command.Parameters.Add("@dateTime", MySqlDbType.LongText).Value = dateTime;
+            
             if (command.ExecuteNonQuery() == 1)
                 returnValue = true;
 

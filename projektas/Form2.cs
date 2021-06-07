@@ -15,14 +15,14 @@ namespace projektas
     public partial class Form2 : Form
     {
         private string userId;
-        private string checkboxDataJson;
+        IDictionary<string, bool> services;
 
-        public Form2(string id, string jsonData)
+        public Form2(string id, IDictionary<string, bool> data)
         {
             InitializeComponent();
 
             this.userId = id;
-            this.checkboxDataJson = jsonData;
+            this.services = data;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -36,11 +36,16 @@ namespace projektas
         {
             string dateTime = Convert.ToString(dateTimePicker1.Value);
 
-            return;
+            MysqlDB sqlDb = new MysqlDB();
 
-            Form form = new Form4(userId);
-            this.Hide();
-            form.Show();
+            bool isNewServiceAdded = sqlDb.isNewServiceAdded(userId, dateTime, services);
+
+            if (isNewServiceAdded)
+            {
+                Form form = new Form4(userId, dateTime, services);
+                this.Hide();
+                form.Show();
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)

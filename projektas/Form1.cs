@@ -43,9 +43,7 @@ namespace projektas
                 }
             }
 
-            string jsonString = JsonConvert.SerializeObject(services);
-
-            Form form = new Form2(userId, jsonString);
+            Form form = new Form2(userId, services);
             this.Hide();
             form.Show();
         }
