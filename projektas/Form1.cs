@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +29,26 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string[,] services;
+            int i = 0;
+
+            foreach (Control c in this.Controls)
+            {
+                if (c is CheckBox)
+                {
+                    string checkboxName = c.Text;
+                    bool checkboxState = ((CheckBox) c).Checked;
+
+                    string[] checkboxArray = { checkboxName, Convert.ToString(checkboxState) };
+
+                    services[i] = checkboxArray;
+
+                    i++;
+                }
+            }
+
+            return;
+
             Form form = new Form2(email);
             this.Hide();
             form.Show();
