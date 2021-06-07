@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 11:14 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jun 07, 2021 at 01:43 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `email` char(50) NOT NULL,
-  `password` char(30) NOT NULL,
+  `password` longtext NOT NULL,
   `name` char(15) NOT NULL,
   `surname` char(15) NOT NULL,
   `phone` char(12) NOT NULL,
@@ -42,7 +42,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `surname`, `phone`, `carNumber`) VALUES
-(5, 'user@user.com', 'No', 'Axel', 'Foley', '+3764097864', 'AAA1111');
+(7, 'user@user.com', 'Password', 'Vardas', 'Pavarde', '222222222', 'AAA222'),
+(8, 'users@user.com', 'Password', 'Vardas', 'Pavarde', '345878987787', 'AAA123');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +66,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

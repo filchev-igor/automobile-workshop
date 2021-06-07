@@ -28,16 +28,18 @@ namespace projektas
             string surname = textBox5.Text.Trim();
             string phone = textBox3.Text.Trim();
             string carNumber = textBox4.Text.Trim();
+            string password = textBox6.Text.Trim();
 
             Fields checkFields = new Fields();
 
             bool isNotValidEmail = !checkFields.isValidEmail(email);
             bool isNotValidPhone = !checkFields.isValidPassword(phone);
             bool isNotValidCarNumber = checkFields.isValidCarNumber(carNumber);
+            bool isNotValidPassword = !checkFields.isValidPassword(password);
 
             label8.Text = "";
 
-            if (isNotValidEmail || isNotValidPhone || isNotValidCarNumber)
+            if (isNotValidEmail || isNotValidPhone || isNotValidCarNumber || isNotValidPassword)
             {
                 if (isNotValidEmail)
                     label8.Text += "Not valid email";
@@ -48,15 +50,29 @@ namespace projektas
                 if (isNotValidCarNumber)
                     label8.Text += "Check the car number again";
 
+                if (isNotValidPassword)
+                    label8.Text += "Check the password again";
+
                 return;
             }
 
-            bool isDataChanged = false;
+            MysqlDB sqlDb = new MysqlDB();
 
-            if (isDataChanged)
+            bool isDataChangeAllowed = sqlDb.isDataChangeAllowed(email, phone, carNumber);
+
+            if (!isDataChangeAllowed)
             {
-                label8.Text = "Your data has been updated";
+                label8.Text = "Email, phone or car number are already exist";
+
+                return;
             }
+
+            bool isDataUpdated = sqlDb.isDataUpdated(email, name, surname, phone, carNumber, password);
+
+            if (isDataUpdated)
+                label8.Text = "Your data has been updated";
+            else
+                label8.Text = "Check all your data again, please!";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,17 +82,12 @@ namespace projektas
             form.Show();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
             DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
                 Application.Exit();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void label6_MouseEnter(object sender, EventArgs e)
