@@ -14,6 +14,9 @@ namespace projektas
 {
     public partial class Form4 : Form
     {
+        Form1 frm1;
+        Form4 frm4;
+
         private string email;
 
         public Form4(string username)
@@ -25,7 +28,7 @@ namespace projektas
 
         private void Form4_Load(object sender, EventArgs e)
         {
-
+            frm1 = new Form1(email);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,5 +57,7 @@ namespace projektas
         {
 
         }
+
+
     }
 }

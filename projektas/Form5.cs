@@ -55,6 +55,7 @@ namespace projektas
 
             label2.Text = "";
 
+
             if (isNotValidEmail || isNotValidPassword)
             {
                 if (isNotValidEmail)
@@ -93,18 +94,41 @@ namespace projektas
         {
             if (!(textBox1.TextLength > 0))
             {
-                textBox1.Text = "Password";
+                textBox1.Text = "slaptažodis";
                 textBox1.UseSystemPasswordChar = false;
             }
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if (!(textBox1.TextLength > 0) || textBox1.Text == "Password")
+            if (!(textBox1.TextLength > 0) || textBox1.Text == "slaptažodis")
             {
                 textBox1.Text = "";
                 textBox1.UseSystemPasswordChar = true;
             }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "vartotojo vardas")
+            {
+                textBox2.Text = "";
+            }
+
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (!(textBox2.TextLength > 0))
+            {
+                textBox2.Text = "vartotojo vardas";
+            }
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

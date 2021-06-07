@@ -43,5 +43,10 @@ namespace projektas
             if (alert == DialogResult.Yes)
                 this.Close();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

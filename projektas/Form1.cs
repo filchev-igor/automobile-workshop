@@ -33,6 +33,12 @@ namespace projektas
             Form form = new Form2(email);
             this.Hide();
             form.Show();
+
+            if (checkBox3.Checked)
+            {
+               
+               listBox1.Items.Add(checkBox3.Text);
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -59,5 +65,13 @@ namespace projektas
             this.Hide();
             form.Show();
         }
+
+
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+
     }
 }
