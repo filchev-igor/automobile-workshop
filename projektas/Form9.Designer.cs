@@ -90,7 +90,7 @@ namespace projektas
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 48);
             this.button1.TabIndex = 40;
-            this.button1.Text = "delete account";
+            this.button1.Text = "pašalinti paskyrą";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -100,9 +100,9 @@ namespace projektas
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(285, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 25);
+            this.label1.Size = new System.Drawing.Size(176, 25);
             this.label1.TabIndex = 35;
-            this.label1.Text = "Delete account";
+            this.label1.Text = "Pašalinti paskyrą";
             // 
             // Form9
             // 

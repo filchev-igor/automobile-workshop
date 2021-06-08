@@ -66,9 +66,9 @@ namespace projektas
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(121, 170);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 20);
+            this.label7.Size = new System.Drawing.Size(166, 20);
             this.label7.TabIndex = 32;
-            this.label7.Text = "new password";
+            this.label7.Text = "naujas slaptažodis";
             // 
             // label6
             // 
@@ -146,9 +146,9 @@ namespace projektas
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(121, 259);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 20);
+            this.label3.Size = new System.Drawing.Size(175, 20);
             this.label3.TabIndex = 21;
-            this.label3.Text = "repeat password";
+            this.label3.Text = "pakartoti slaptažodį";
             // 
             // label2
             // 
@@ -156,9 +156,9 @@ namespace projektas
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(121, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 20);
+            this.label2.Size = new System.Drawing.Size(198, 20);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Current password";
+            this.label2.Text = "Dabartinis slaptažodis";
             // 
             // label1
             // 
@@ -166,9 +166,9 @@ namespace projektas
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(299, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 25);
+            this.label1.Size = new System.Drawing.Size(222, 25);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Password change";
+            this.label1.Text = "Slaptažodžio keitimas";
             // 
             // Form8
             // 
