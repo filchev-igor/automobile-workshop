@@ -83,7 +83,7 @@ namespace projektas
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(151, 42);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Change password";
+            this.button3.Text = "Pakeisyti slaptažodį";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -94,7 +94,7 @@ namespace projektas
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(158, 42);
             this.button4.TabIndex = 4;
-            this.button4.Text = "Delete account";
+            this.button4.Text = "Ištrinti paskyrą";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

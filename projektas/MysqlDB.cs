@@ -260,6 +260,7 @@ namespace projektas
             return encoded;
         }
 
+
         public bool isAccountDeleted(string userId)
         {
             bool returnValue = false;
@@ -277,6 +278,20 @@ namespace projektas
                 returnValue = true;
 
             connection.Close();
+
+            MySqlConnection connectionRepeat = this.getConnection();
+
+            string sqlNew = "DELETE FROM services " +
+                "WHERE userId=@userId";
+
+            MySqlCommand commandNew = new MySqlCommand(sqlNew, connectionRepeat);
+
+            commandNew.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
+
+            if (commandNew.ExecuteNonQuery() == 1)
+                returnValue = true;
+
+            connectionRepeat.Close();
 
             return returnValue;
         }
