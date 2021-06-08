@@ -27,7 +27,10 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+
+            if (alert == DialogResult.Yes)
+                Application.Exit();
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
@@ -56,7 +59,7 @@ namespace projektas
             bool isNotValidPassword = !checkFields.isValidPassword(password);
             bool isNotValidPasswordRepeat = !(password == passwordRepeat);
             bool isNotValidPhone = !checkFields.isValidPassword(phone);
-            bool isNotValidCarNumber = checkFields.isValidPassword(carNumber);
+            bool isNotValidCarNumber = !checkFields.isValidCarNumber(carNumber);
 
             label2.Text = "";
 
@@ -91,11 +94,14 @@ namespace projektas
                 return;
             }
 
-            bool isUserCreated = sqlDb.createUser(email, password, name, surname, phone, carNumber);
+            string[] signInData = sqlDb.createUser(email, password, name, surname, phone, carNumber);
+
+            bool isUserCreated = Convert.ToBoolean(signInData[0]);
+            string userId = signInData[1];
 
             if (isUserCreated)
             {
-                Form form = new Form7(email);
+                Form form = new Form7(userId);
                 this.Hide();
                 form.Show();
             }

@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +14,13 @@ namespace projektas
 {
     public partial class Form1 : Form
     {
-        private string email;
+        private string userId;
         
-        public Form1(string username)
+        public Form1(string id)
         {
             InitializeComponent();
 
-            this.email = username;
+            this.userId = id;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,8 +29,21 @@ namespace projektas
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            Form form = new Form2(email);
+        {            
+            IDictionary<string, bool> services = new Dictionary<string, bool>();
+
+            foreach (Control c in this.Controls)
+            {
+                if (c is CheckBox)
+                {
+                    string checkboxName = c.Text;
+                    bool checkboxState = ((CheckBox) c).Checked;
+
+                    services.Add(checkboxName, checkboxState);
+                }
+            }
+
+            Form form = new Form2(userId, services);
             this.Hide();
             form.Show();
 
@@ -46,7 +59,7 @@ namespace projektas
             DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
-                this.Close();
+                Application.Exit();
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
@@ -61,7 +74,7 @@ namespace projektas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form form = new Form7(email);
+            Form form = new Form7(userId);
             this.Hide();
             form.Show();
         }
