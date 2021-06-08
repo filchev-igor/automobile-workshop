@@ -32,7 +32,10 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+
+            if (alert == DialogResult.Yes)
+                Application.Exit();
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)

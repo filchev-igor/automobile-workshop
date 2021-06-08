@@ -39,9 +39,10 @@ namespace projektas
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(16, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 34);
+            this.button1.Size = new System.Drawing.Size(125, 42);
             this.button1.TabIndex = 0;
             this.button1.Text = "Registruoti automobilį";
             this.button1.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@ namespace projektas
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(144, 12);
+            this.button2.Location = new System.Drawing.Point(149, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 34);
+            this.button2.Size = new System.Drawing.Size(125, 42);
             this.button2.TabIndex = 1;
             this.button2.Text = "Keisti vartotojo duomenis";
             this.button2.UseVisualStyleBackColor = true;
@@ -65,10 +67,9 @@ namespace projektas
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(114, 11);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(1026, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 22);
+            this.label5.Size = new System.Drawing.Size(29, 27);
             this.label5.TabIndex = 2;
             this.label5.Text = "X";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -77,9 +78,10 @@ namespace projektas
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(276, 12);
+            this.button3.Location = new System.Drawing.Point(282, 15);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 42);
+            this.button3.Size = new System.Drawing.Size(151, 42);
             this.button3.TabIndex = 3;
             this.button3.Text = "Change password";
             this.button3.UseVisualStyleBackColor = true;
@@ -87,9 +89,10 @@ namespace projektas
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(408, 12);
+            this.button4.Location = new System.Drawing.Point(441, 15);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(126, 42);
+            this.button4.Size = new System.Drawing.Size(158, 42);
             this.button4.TabIndex = 4;
             this.button4.Text = "Delete account";
             this.button4.UseVisualStyleBackColor = true;
@@ -100,30 +103,32 @@ namespace projektas
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 74);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 91);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 99);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1035, 122);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // Form7
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form7";
             this.Text = "Form7";
             this.Load += new System.EventHandler(this.Form7_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

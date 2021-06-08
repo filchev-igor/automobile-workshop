@@ -38,7 +38,10 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+
+            if (alert == DialogResult.Yes)
+                Application.Exit();
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
@@ -67,36 +70,39 @@ namespace projektas
 
         private void Form7_Load(object sender, EventArgs e)
         {
+            int dateRow = 0;
+
             MysqlDB sqlDb = new MysqlDB();
 
             IDictionary<string, string> servicesDataAndTime = sqlDb.getServicesData(userId);
 
-            int row = 0;
-
             foreach (KeyValuePair<string, string> dataAndTime in servicesDataAndTime)
             {
-                Label label1 = new Label();
-                Label label2 = new Label();
+                int dataRow = 0;
+
+                Label dateLabel = new Label();
 
                 IDictionary<string, bool> servicesData = JsonConvert.DeserializeObject<Dictionary<string, bool>>(dataAndTime.Key);
 
                 foreach (KeyValuePair<string, bool> data in servicesData)
                 {
-                    if (data.Value == true)
-                    {
-                        label1.Text += data.Key;
-                        label1.Text += " \r\n";
-                    }
+                    Label label = new Label();
+
+                    label.Text += data.Key;
+
+                    tableLayoutPanel1.Controls.Add(label, 0, dataRow);
+
+                    dataRow++;
                 }
                 
                 string dateTime = dataAndTime.Value;
 
-                label2.Text = dateTime;
+                dateLabel.Text = dateTime;
 
-                tableLayoutPanel1.Controls.Add(label1, 0, row);
-                tableLayoutPanel1.Controls.Add(label2, 1, row);
+                tableLayoutPanel1.Controls.Add(dateLabel, 1, dateRow);
 
-                row++;
+                dateRow += dateRow;
+                dateRow++;
             }
         }
     }

@@ -39,19 +39,14 @@ namespace projektas
                     string checkboxName = c.Text;
                     bool checkboxState = ((CheckBox) c).Checked;
 
-                    services.Add(checkboxName, checkboxState);
+                    if (checkboxState)
+                        services.Add(checkboxName, checkboxState);
                 }
             }
 
             Form form = new Form2(userId, services);
             this.Hide();
             form.Show();
-
-           // if (checkBox3.Checked)
-          //  {
-               
-          //     listBox1.Items.Add(checkBox3.Text);
-          //  }
         }
 
         private void label5_Click(object sender, EventArgs e)

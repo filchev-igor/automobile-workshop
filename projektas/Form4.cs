@@ -27,11 +27,6 @@ namespace projektas
             this.services = data;
         }
 
-        private void Form4_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form form = new Form7(userId);

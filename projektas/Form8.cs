@@ -72,7 +72,10 @@ namespace projektas
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+
+            if (alert == DialogResult.Yes)
+                Application.Exit();
         }
     }
 }
