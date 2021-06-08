@@ -23,6 +23,11 @@ namespace projektas
 
             this.userId = id;
             this.services = data;
+
+            for (int i = 9; i < 21; i++) {
+                for (int j = 0; j < 60; j += 20)
+                    comboBox1.Items.Add(i + ":" + j + ((j == 0) ? "0" : ""));
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -36,13 +41,15 @@ namespace projektas
         {
             string dateTime = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd HH:mm");
 
+            string newDateTime = dateTime.Substring(0, 11) + Convert.ToString(comboBox1.SelectedItem);
+
             MysqlDB sqlDb = new MysqlDB();
 
-            bool isNewServiceAdded = sqlDb.isNewServiceAdded(userId, dateTime, services);
+            bool isNewServiceAdded = sqlDb.isNewServiceAdded(userId, newDateTime, services);
 
             if (isNewServiceAdded)
             {
-                Form form = new Form4(userId, dateTime, services);
+                Form form = new Form4(userId, newDateTime, services);
                 this.Hide();
                 form.Show();
             }
