@@ -23,7 +23,7 @@ namespace projektas
 
         private void label6_Click(object sender, EventArgs e)
         {
-            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult alert = MessageBox.Show("Ar norite išeiti?", "Išeiti", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
                 Application.Exit();
@@ -38,7 +38,7 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult isReadyToDelete = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult isReadyToDelete = MessageBox.Show("Ar norite išeiti?", "Išeiti", MessageBoxButtons.YesNo);
 
             if (isReadyToDelete != DialogResult.Yes)
                 return;
@@ -55,7 +55,7 @@ namespace projektas
             }
             else
             {
-                MessageBox.Show("Something went wrong!");
+                MessageBox.Show("Įvyko klaida!");
             }
         }
     }

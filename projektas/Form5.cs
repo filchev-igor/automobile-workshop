@@ -31,7 +31,7 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult alert = MessageBox.Show("Ar norite išeiti?", "Išeiti", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
                 Application.Exit();
@@ -63,10 +63,10 @@ namespace projektas
             if (isNotValidEmail || isNotValidPassword)
             {
                 if (isNotValidEmail)
-                    label2.Text += "Not valid email";
+                    label2.Text += "Neteisingas el. paštas";
 
                 if (isNotValidPassword)
-                    label2.Text += "Password is too short";
+                    label2.Text += "Slaptažodis per trumpas";
 
                 return;
             }
@@ -80,7 +80,7 @@ namespace projektas
 
             if (!isLogInPossible)
             {
-                label2.Text = "Check email or password!";
+                label2.Text = "Patikrinti el. paštą ar slaptažodį";
 
                 return;
             }

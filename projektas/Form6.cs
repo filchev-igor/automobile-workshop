@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +27,7 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult alert = MessageBox.Show("Ar norite išeiti?", "Išeiti", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
                 Application.Exit();
@@ -66,19 +66,19 @@ namespace projektas
             if (isNotValidEmail || isNotValidPassword || isNotValidPasswordRepeat || isNotValidPhone || isNotValidCarNumber)
             {
                 if (isNotValidEmail)
-                    label2.Text += "Not valid email";
+                    label2.Text += "Neteisingas el. paštas";
 
                 if (isNotValidPassword)
-                    label2.Text += "Password is too short";
+                    label2.Text += "Slaptažodis per trumpas";
 
                 if (isNotValidPasswordRepeat)
-                    label2.Text += "Passwords does not match";
+                    label2.Text += "Slaptažodžiai nesutampa";
 
                 if (isNotValidPhone)
-                    label2.Text += "Phone should contain numbers only (without +)";
+                    label2.Text += "Tel. numeris turi būti sudarytas tik iš skaičių (be +)";
 
                 if (isNotValidCarNumber)
-                    label2.Text += "Check the car number again";
+                    label2.Text += "Dar kartą patikrinkite automobilio numerį";
 
                 return;
             }
@@ -89,7 +89,7 @@ namespace projektas
 
             if (!isRegistrationPossible)
             {
-                label2.Text = "Check email, phone or car number!";
+                label2.Text = "Patikrinkite el. paštą, telefono or automobilio numerius!";
 
                 return;
             }

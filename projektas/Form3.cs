@@ -37,21 +37,21 @@ namespace projektas
             bool isNotValidCarNumber = !checkFields.isValidCarNumber(carNumber);
             bool isNotValidPassword = !checkFields.isValidPassword(password);
 
-            label8.Text = "";
+            label3.Text = "";
 
             if (isNotValidEmail || isNotValidPhone || isNotValidCarNumber || isNotValidPassword)
             {
                 if (isNotValidEmail)
-                    label8.Text += "Not valid email";
+                    label3.Text += "Neteisingas el. paštas";
 
                 if (isNotValidPhone)
-                    label8.Text += "Phone should contain numbers only (without +)";
+                    label3.Text += "Tel. numeris turi būti sudarytas tik iš skaičių (be +)";
 
                 if (isNotValidCarNumber)
-                    label8.Text += "Check the car number again";
+                    label3.Text += "Patikrinti automobilio numerį";
 
                 if (isNotValidPassword)
-                    label8.Text += "Check the password again";
+                    label3.Text += "Patikrinti slaptažodį";
 
                 return;
             }
@@ -62,7 +62,7 @@ namespace projektas
 
             if (!isDataChangeAllowed)
             {
-                label8.Text = "Email, phone or car number are already exist";
+                label3.Text = "El. paštas, telefono ar automobilio numeriai jau egzistuoja";
 
                 return;
             }
@@ -70,9 +70,9 @@ namespace projektas
             bool isDataUpdated = sqlDb.isDataUpdated(email, name, surname, phone, carNumber, password, userId);
 
             if (isDataUpdated)
-                label8.Text = "Your data has been updated";
+                label3.Text = "Jūsų duomenys buvo atnaujinti";
             else
-                label8.Text = "Check all your data again, please!";
+                label3.Text = "Dar kartą patikrinkite savo duomenis";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace projektas
 
         private void label6_Click(object sender, EventArgs e)
         {
-            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult alert = MessageBox.Show("Ar norite išeiti?", "Išeiti", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
                 Application.Exit();

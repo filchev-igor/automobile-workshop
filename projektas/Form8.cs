@@ -39,16 +39,16 @@ namespace projektas
             if (isCurrentPasswordNotValid || isNewPasswordNotValid || isSamePassword || isPasswordRepeatNotValid)
             {
                 if (isCurrentPasswordNotValid)
-                    label8.Text += "Not valid current password";
+                    label8.Text += "Neteisingas dabartinis slaptažodis";
 
                 if (isNewPasswordNotValid)
-                    label8.Text += "Not valid new password";
+                    label8.Text += "Neteisingas naujas slaptažodis";
 
                 if (isSamePassword)
-                    label8.Text += "Password should be new";
+                    label8.Text += "Naudoti tik naują slaptažodį";
 
                 if (isPasswordRepeatNotValid)
-                    label8.Text += "Repeat the correct password";
+                    label8.Text += "Pakartotinai įveskite teisingą slaptažodį";
 
                 return;
             }
@@ -58,9 +58,9 @@ namespace projektas
             bool isPasswordUpdated = sqlDb.isPasswordUpdated(userId, newPassword);
 
             if (isPasswordUpdated)
-                label8.Text = "Your password has been updated";
+                label8.Text = "Jūsų slaptažodis buvo atnaujintas";
             else
-                label8.Text = "Check all your data again, please!";
+                label8.Text = "Dar karta patikrinkite visus jūsų duomenis!";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace projektas
 
         private void label6_Click(object sender, EventArgs e)
         {
-            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult alert = MessageBox.Show("Ar norite išeiti?", "Išeiti", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
                 Application.Exit();

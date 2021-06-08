@@ -1,12 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace projektas
@@ -38,7 +33,7 @@ namespace projektas
 
         private void label5_Click(object sender, EventArgs e)
         {
-            DialogResult alert = MessageBox.Show("Do you wish to quit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult alert = MessageBox.Show("Ar norite išeiti?", "Išeiti", MessageBoxButtons.YesNo);
 
             if (alert == DialogResult.Yes)
                 Application.Exit();
@@ -68,41 +63,29 @@ namespace projektas
             form.Show();
         }
 
-        private void Form7_Load(object sender, EventArgs e)
+       private void Form7_Load(object sender, EventArgs e)
         {
-            int dateRow = 0;
-
             MysqlDB sqlDb = new MysqlDB();
 
             IDictionary<string, string> servicesDataAndTime = sqlDb.getServicesData(userId);
 
             foreach (KeyValuePair<string, string> dataAndTime in servicesDataAndTime)
             {
-                int dataRow = 0;
-
-                Label dateLabel = new Label();
+                string dataShow = "";
 
                 IDictionary<string, bool> servicesData = JsonConvert.DeserializeObject<Dictionary<string, bool>>(dataAndTime.Key);
 
                 foreach (KeyValuePair<string, bool> data in servicesData)
                 {
-                    Label label = new Label();
-
-                    label.Text += data.Key;
-
-                    tableLayoutPanel1.Controls.Add(label, 0, dataRow);
-
-                    dataRow++;
+                    dataShow += data.Key;
+                    dataShow += ", ";
                 }
-                
+
                 string dateTime = dataAndTime.Value;
 
-                dateLabel.Text = dateTime;
+                dataShow += dateTime;
 
-                tableLayoutPanel1.Controls.Add(dateLabel, 1, dateRow);
-
-                dateRow += dateRow;
-                dateRow++;
+                listBox1.Items.Add(dataShow);
             }
         }
     }
