@@ -59,7 +59,7 @@ namespace projektas
             bool isNotValidPassword = !checkFields.isValidPassword(password);
             bool isNotValidPasswordRepeat = !(password == passwordRepeat);
             bool isNotValidPhone = !checkFields.isValidPassword(phone);
-            bool isNotValidCarNumber = checkFields.isValidPassword(carNumber);
+            bool isNotValidCarNumber = !checkFields.isValidCarNumber(carNumber);
 
             label2.Text = "";
 

@@ -34,11 +34,12 @@ namespace projektas
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 56);
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 42);
             this.button1.TabIndex = 0;
@@ -48,7 +49,7 @@ namespace projektas
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(144, 56);
+            this.button2.Location = new System.Drawing.Point(144, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 42);
             this.button2.TabIndex = 1;
@@ -75,7 +76,7 @@ namespace projektas
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(276, 56);
+            this.button3.Location = new System.Drawing.Point(276, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(126, 42);
             this.button3.TabIndex = 3;
@@ -85,7 +86,7 @@ namespace projektas
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(408, 56);
+            this.button4.Location = new System.Drawing.Point(408, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(126, 42);
             this.button4.TabIndex = 4;
@@ -93,11 +94,25 @@ namespace projektas
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 74);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 99);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
@@ -105,6 +120,7 @@ namespace projektas
             this.Controls.Add(this.button1);
             this.Name = "Form7";
             this.Text = "Form7";
+            this.Load += new System.EventHandler(this.Form7_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +133,6 @@ namespace projektas
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

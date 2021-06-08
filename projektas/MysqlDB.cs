@@ -12,7 +12,7 @@ namespace projektas
 {
     class MysqlDB
     {
-        private const string connectionString = "server=localhost;port=3306;username=root;password=;database=customers";
+        private const string connectionString = "server=localhost;port=3306;username=root;password=;database=customers; convert zero datetime=True";
 
         private MySqlConnection getConnection()
         {
@@ -165,7 +165,7 @@ namespace projektas
 
             MySqlConnection connection = this.getConnection();
 
-            string sql = "SELECT * FROM users WHERE email=@email OR phone=@phone OR carNumber=@carNumber AND id=@userId";
+            string sql = "SELECT * FROM users WHERE (email=@email OR phone=@phone ) AND id!=@userId";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
@@ -195,7 +195,7 @@ namespace projektas
 
             string sql = "UPDATE users " +
                 "SET " +
-                "email=@email, name=@name, surname=@surname, phone=@phone, carNumber=@carNumber" +
+                "email=@email, name=@name, surname=@surname, phone=@phone, carNumber=@carNumber " +
                 "WHERE password=@password AND id=@userId";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
@@ -289,13 +289,13 @@ namespace projektas
 
             string jsonString = JsonConvert.SerializeObject(services);
 
-            string sql = "INSERT INTO services(userId, typeOfService, dateTime) VALUES (@userId, @jsonString, @dateTime)";
+            string sql = "INSERT INTO services(userId, typeOfService, dateTime) VALUES (@userId, @typeOfService, @dateTime)";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
 
             command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
-            command.Parameters.Add("@typeOfService", MySqlDbType.VarChar).Value = jsonString;
-            command.Parameters.Add("@dateTime", MySqlDbType.LongText).Value = dateTime;
+            command.Parameters.Add("@typeOfService", MySqlDbType.LongText).Value = jsonString;
+            command.Parameters.Add("@dateTime", MySqlDbType.DateTime).Value = dateTime;
             
             if (command.ExecuteNonQuery() == 1)
                 returnValue = true;
@@ -303,6 +303,28 @@ namespace projektas
             connection.Close();
 
             return returnValue;
+        }
+
+        public IDictionary<string, string> getServicesData(string userId)
+        {
+            IDictionary<string, string> data = new Dictionary<string, string>();
+
+            MySqlConnection connection = this.getConnection();
+
+            string sql = "SELECT typeOfService, dateTime FROM services WHERE userId=@userId";
+
+            MySqlCommand command = new MySqlCommand(sql, connection);
+
+            command.Parameters.Add("@userId", MySqlDbType.VarChar).Value = userId;
+
+            MySqlDataReader rdr = command.ExecuteReader();
+
+            while (rdr.Read())
+                data.Add(Convert.ToString(rdr["typeOfService"]), Convert.ToString(rdr["dateTime"]));
+
+            connection.Close();
+
+            return data;
         }
     }
 }

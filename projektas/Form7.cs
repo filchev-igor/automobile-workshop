@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -62,6 +63,41 @@ namespace projektas
             Form form = new Form9(userId);
             this.Hide();
             form.Show();
+        }
+
+        private void Form7_Load(object sender, EventArgs e)
+        {
+            MysqlDB sqlDb = new MysqlDB();
+
+            IDictionary<string, string> servicesDataAndTime = sqlDb.getServicesData(userId);
+
+            int row = 0;
+
+            foreach (KeyValuePair<string, string> dataAndTime in servicesDataAndTime)
+            {
+                Label label1 = new Label();
+                Label label2 = new Label();
+
+                IDictionary<string, bool> servicesData = JsonConvert.DeserializeObject<Dictionary<string, bool>>(dataAndTime.Key);
+
+                foreach (KeyValuePair<string, bool> data in servicesData)
+                {
+                    if (data.Value == true)
+                    {
+                        label1.Text += data.Key;
+                        label1.Text += " \r\n";
+                    }
+                }
+                
+                string dateTime = dataAndTime.Value;
+
+                label2.Text = dateTime;
+
+                tableLayoutPanel1.Controls.Add(label1, 0, row);
+                tableLayoutPanel1.Controls.Add(label2, 1, row);
+
+                row++;
+            }
         }
     }
 }

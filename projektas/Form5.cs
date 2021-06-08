@@ -19,6 +19,8 @@ namespace projektas
 
             this.textBox2.AutoSize = false;
             this.textBox2.Size = new Size(this.textBox2.Size.Width, 50);
+
+            Fields fields = new Fields();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

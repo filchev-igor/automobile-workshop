@@ -34,7 +34,7 @@ namespace projektas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string dateTime = Convert.ToString(dateTimePicker1.Value);
+            string dateTime = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd HH:mm");
 
             MysqlDB sqlDb = new MysqlDB();
 

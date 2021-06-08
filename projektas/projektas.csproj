@@ -98,7 +98,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB.cs" />
     <Compile Include="Fields.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -195,6 +194,20 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Fields.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\Form2.datasource" />
+    <None Include="Properties\DataSources\Form3.datasource" />
+    <None Include="Properties\DataSources\Form4.datasource" />
+    <None Include="Properties\DataSources\Form5.datasource" />
+    <None Include="Properties\DataSources\Form6.datasource" />
+    <None Include="Properties\DataSources\Form7.datasource" />
+    <None Include="Properties\DataSources\Form8.datasource" />
+    <None Include="Properties\DataSources\Form9.datasource" />
+    <None Include="Properties\DataSources\MysqlDB.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\projektas.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\projektas.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

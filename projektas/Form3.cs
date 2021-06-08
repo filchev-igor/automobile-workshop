@@ -34,7 +34,7 @@ namespace projektas
 
             bool isNotValidEmail = !checkFields.isValidEmail(email);
             bool isNotValidPhone = !checkFields.isValidPassword(phone);
-            bool isNotValidCarNumber = checkFields.isValidCarNumber(carNumber);
+            bool isNotValidCarNumber = !checkFields.isValidCarNumber(carNumber);
             bool isNotValidPassword = !checkFields.isValidPassword(password);
 
             label8.Text = "";
@@ -57,7 +57,7 @@ namespace projektas
             }
 
             MysqlDB sqlDb = new MysqlDB();
-
+            
             bool isDataChangeAllowed = sqlDb.isDataChangeAllowed(email, phone, carNumber, userId);
 
             if (!isDataChangeAllowed)
@@ -66,7 +66,7 @@ namespace projektas
 
                 return;
             }
-
+          
             bool isDataUpdated = sqlDb.isDataUpdated(email, name, surname, phone, carNumber, password, userId);
 
             if (isDataUpdated)
@@ -107,7 +107,7 @@ namespace projektas
             string[] data = sqlDb.getPersonalData(userId);
 
             textBox1.Text = data[1];
-            textBox5.Text = data[5];
+            textBox5.Text = data[2];
             textBox3.Text = data[3];
             textBox4.Text = data[4];
             textBox2.Text = data[0];
