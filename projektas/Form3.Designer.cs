@@ -254,11 +254,10 @@ namespace projektas
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(434, 125);
+            this.label3.Location = new System.Drawing.Point(449, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 23;
-            this.label3.Text = "label3";
             // 
             // Form3
             // 
