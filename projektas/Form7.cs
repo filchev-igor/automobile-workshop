@@ -86,6 +86,7 @@ namespace projektas
                 dataShow += dateTime;
 
                 listBox1.Items.Add(dataShow);
+
             }
         }
     }
