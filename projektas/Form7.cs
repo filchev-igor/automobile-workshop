@@ -69,24 +69,43 @@ namespace projektas
 
             IDictionary<string, string> servicesDataAndTime = sqlDb.getServicesData(userId);
 
+            // Create an unbound DataGridView by declaring a
+            // column count.
+            dataGridView1.ColumnCount = 3;
+
+            // Set the column header style.
+            DataGridViewCellStyle columnHeaderStyle =
+                new DataGridViewCellStyle();
+            columnHeaderStyle.BackColor = Color.Aqua;
+            columnHeaderStyle.Font =
+                new Font("Verdana", 10, FontStyle.Bold);
+            dataGridView1.ColumnHeadersDefaultCellStyle =
+                columnHeaderStyle;
+
+            // Set the column header names.
+            dataGridView1.Columns[0].Name = "Services";
+            dataGridView1.Columns[1].Name = "Date";
+            dataGridView1.Columns[2].Name = "Time";
+
             foreach (KeyValuePair<string, string> dataAndTime in servicesDataAndTime)
             {
-                string dataShow = "";
+                string list = "";
 
                 IDictionary<string, bool> servicesData = JsonConvert.DeserializeObject<Dictionary<string, bool>>(dataAndTime.Key);
 
                 foreach (KeyValuePair<string, bool> data in servicesData)
                 {
-                    dataShow += data.Key;
-                    dataShow += ", ";
+                    list += data.Key;
+                    list += Environment.NewLine;
                 }
 
                 string dateTime = dataAndTime.Value;
 
-                dataShow += dateTime;
+                string[] dateAndTime = dateTime.Split(' ');
 
-                listBox1.Items.Add(dataShow);
+                string[] loopRow = new string[] {list, dateAndTime[0], dateAndTime[1]};
 
+                dataGridView1.Rows.Add(loopRow);
             }
         }
     }
