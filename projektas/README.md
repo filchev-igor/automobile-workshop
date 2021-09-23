@@ -9,10 +9,6 @@
 The purspose of this project is to make app in group of three people for registration car repairent service and save to the MySQL database
 with the possibility to see saved results.
 
-<a name="important-note"></a>
-## Important note
-Run the command **npm start** and type **http://localhost:3000** in the browser
-
 <a name="images"></a>
 ## Images
 ![Image 1](Resources/Screenshot 2021-09-23 223108.png)
