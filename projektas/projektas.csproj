@@ -224,12 +224,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="Resources\block.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Screenshot 2021-09-23 223108.png" />
+    <Content Include="Resources\Screenshot 2021-09-23 223301.png" />
+    <Content Include="Resources\Screenshot 2021-09-23 223343.png" />
+    <Content Include="Resources\Screenshot 2021-09-23 223401.png" />
+    <Content Include="Resources\Screenshot 2021-09-23 223459.png" />
     <Content Include="services.sql" />
     <Content Include="users.sql" />
   </ItemGroup>

@@ -59,6 +59,7 @@ namespace projektas
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(246, 22);
             this.textBox5.TabIndex = 33;
+            this.textBox5.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -132,6 +133,7 @@ namespace projektas
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(246, 22);
             this.textBox2.TabIndex = 23;
+            this.textBox2.UseSystemPasswordChar = true;
             // 
             // textBox1
             // 
@@ -139,6 +141,7 @@ namespace projektas
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 22);
             this.textBox1.TabIndex = 22;
+            this.textBox1.UseSystemPasswordChar = true;
             // 
             // label3
             // 

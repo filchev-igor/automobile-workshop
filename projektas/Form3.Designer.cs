@@ -250,6 +250,7 @@ namespace projektas
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(237, 22);
             this.textBox6.TabIndex = 21;
+            this.textBox6.UseSystemPasswordChar = true;
             // 
             // label3
             // 

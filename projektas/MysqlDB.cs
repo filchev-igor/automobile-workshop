@@ -226,7 +226,7 @@ namespace projektas
 
             string sql = "UPDATE users " +
                 "SET " +
-                "password=@password" +
+                "password=@password " +
                 "WHERE id=@userId AND password=@password";
 
             MySqlCommand command = new MySqlCommand(sql, connection);
